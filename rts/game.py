@@ -819,7 +819,13 @@ class RTSGame:
             base_sprite = surf
         sprite = base_sprite.copy()
         tint = pygame.Surface(sprite.get_size(), pygame.SRCALPHA)
-        tint.fill((*player.primary_color, 80))
+        tint_color = (
+            player.primary_color.r,
+            player.primary_color.g,
+            player.primary_color.b,
+            80,
+        )
+        tint.fill(tint_color)
         sprite.blit(tint, (0, 0), special_flags=pygame.BLEND_RGBA_ADD)
         return sprite
 
